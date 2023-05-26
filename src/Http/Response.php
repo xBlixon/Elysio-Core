@@ -6,6 +6,17 @@ class Response
 {
     private array $headers = [];
     private string $body;
+    private int $responseCode = 200;
+
+    public function getResponseCode(): int
+    {
+        return $this->responseCode;
+    }
+
+    public function setResponseCode(int $responseCode): void
+    {
+        $this->responseCode = $responseCode;
+    }
 
     public function getBody(): string
     {
