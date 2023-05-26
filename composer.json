@@ -1,0 +1,21 @@
+{
+    "name": "elysio/core",
+    "description": "The core logic of Elysio Framework.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Elysio\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Xawier Slupik",
+            "email": "48760619+xBlixon@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "php": "8.1"
+    }
+}
