@@ -19,8 +19,10 @@ abstract class Route implements Routeable
     {
         extract($variables);
 
+        // $viewsDir is equivalent to _VIEWS constant in the Elysio Framework.
+        $viewsDir = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Views" . DIRECTORY_SEPARATOR;
         ob_start();
-            require (_VIEWS . $view);
+            require ($viewsDir . $view);
             $body = ob_get_contents();
         ob_end_clean();
 
