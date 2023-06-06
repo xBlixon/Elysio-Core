@@ -6,8 +6,8 @@ abstract class Route
 {
     readonly string $path;
     readonly ?string $name;
-    private Request $request;
-    private Response $response;
+    protected Request $request;
+    protected Response $response;
 
     public function __construct(string $path, ?string $name=NULL)
     {
