@@ -6,12 +6,14 @@ abstract class Route
 {
     readonly string $path;
     readonly ?string $name;
+    private Request $request;
     private Response $response;
 
     public function __construct(string $path, ?string $name=NULL)
     {
         $this->path = $path;
         $this->name = $name;
+        $this->request = Request::getInstance();
         $this->response = new Response();
     }
 
