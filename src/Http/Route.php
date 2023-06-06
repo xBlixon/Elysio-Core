@@ -40,7 +40,7 @@ abstract class Route
 
     protected function redirectTo(string $path): Response
     {
-        $this->response->addHeaders("Location: $path");
-        return $this->response;
+        header("Location: $path");
+        die();
     }
 }

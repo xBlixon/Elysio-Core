@@ -76,7 +76,7 @@ class Response
     const CODE_SERVER_NETWORK_AUTHENTICATION_REQUIRED = 511;
 
     private array $headers = [];
-    private string $body;
+    private string $body = "";
     private int $responseCode = self::CODE_SUCCESS_OK;
 
     public function getResponseCode(): int
