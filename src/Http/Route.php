@@ -2,7 +2,7 @@
 
 namespace Elysio\Http;
 
-abstract class Route implements Routeable
+abstract class Route
 {
     readonly string $path;
     readonly ?string $name;
