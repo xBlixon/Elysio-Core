@@ -2,6 +2,8 @@
 
 namespace Elysio\Http;
 
+use Elysio\Http\Exceptions\RouteMethodException;
+
 abstract class Route
 {
     readonly string $path;
@@ -21,7 +23,7 @@ abstract class Route
     {
         extract($variables);
 
-        // $viewsDir is equivalent to _VIEWS constant in the Elysio Framework.
+        /** $viewsDir is equivalent to _VIEWS constant in the Elysio Framework. */
         $viewsDir = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Views" . DIRECTORY_SEPARATOR;
         ob_start();
             require ($viewsDir . $view);
@@ -42,5 +44,16 @@ abstract class Route
     {
         header("Location: $path");
         die();
+    }
+
+    public function __call(string $name, array $arguments)
+    {
+        $methods = ['GET', 'POST', 'ANY'];
+
+        if(in_array($name, $methods))
+        {
+            $class = self::class;
+            throw new RouteMethodException("Handling for method [ $name ] is not defined for $class on \"$this->path\" ");
+        }
     }
 }
