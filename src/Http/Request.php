@@ -55,35 +55,11 @@ class Request
 
     public function doesRouteMatch(Route $route): bool
     {
-        if(
-            $this->path === $route->path
-            &&
-            $this->doesRouteAllowMethod($route)
-        ) return true;
-
-        return false;
-    }
-
-    private function doesRouteAllowMethod(Route $route): bool
-    {
-        $METHODS = [
-            'GET'  => GET::class,
-            'POST' => POST::class
-        ];
-
-        $reflection = new ReflectionClass($route);
-        $attributes = $reflection->getAttributes();
-        $routeMethods = [];
-        foreach ($attributes as $attribute)
+        if($this->path === $route->path)
         {
-            $method = $attribute->getName();
-            if ($method === ANY::class)
-                return true;
-            $routeMethods[] = $method;
+            return true;
         }
-
-        if(in_array($METHODS[$this->method], $routeMethods)) return true;
-
         return false;
     }
+
 }
