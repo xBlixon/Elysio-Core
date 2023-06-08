@@ -18,8 +18,8 @@ abstract class Route
         $this->path     = $path;
         $this->name     = $name;
         $this->request  = Request::getInstance();
+        $this->session  = Session::getInstance();
         $this->response = new Response();
-        $this->session  = new Session();
     }
 
     protected function render(string $view, array $variables): Response

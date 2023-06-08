@@ -4,12 +4,23 @@ namespace Elysio\Session;
 
 class Session
 {
+    private static ?Session $instance = NULL;
     private ?string $flashMessage = NULL;
 
-    public function __construct()
+    private function __construct()
     {
         session_start();
         $this->flashMessage =& $_SESSION['_FLASH'];
+    }
+
+    public static function getInstance(): Session
+    {
+        if (self::$instance == NULL)
+        {
+            self::$instance = new static();
+        }
+
+        return self::$instance;
     }
 
     public function getFlash(): ?string

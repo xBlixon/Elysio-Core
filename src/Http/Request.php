@@ -2,16 +2,11 @@
 
 namespace Elysio\Http;
 
-use ReflectionClass;
-
 class Request
 {
-    private static $instance = null;
-
+    private static ?Request $instance = NULL;
     readonly string $method;
-
     readonly string $path;
-
     readonly array $params;
 
 
@@ -23,7 +18,7 @@ class Request
 
     public static function getInstance(): Request
     {
-        if (self::$instance == null)
+        if (self::$instance == NULL)
         {
             self::$instance = new static();
         }
