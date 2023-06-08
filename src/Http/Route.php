@@ -22,7 +22,7 @@ abstract class Route
         $this->response = new Response();
     }
 
-    protected function render(string $view, array $variables): Response
+    protected function render(string $view, array $variables=[]): Response
     {
         extract($variables);
 
