@@ -3,6 +3,7 @@
 namespace Elysio\Http;
 
 use Elysio\Http\Exceptions\RouteMethodException;
+use Elysio\Session\Session;
 
 abstract class Route
 {
@@ -10,13 +11,15 @@ abstract class Route
     readonly ?string $name;
     protected Request $request;
     protected Response $response;
+    protected Session $session;
 
     public function __construct(string $path, ?string $name=NULL)
     {
-        $this->path = $path;
-        $this->name = $name;
-        $this->request = Request::getInstance();
+        $this->path     = $path;
+        $this->name     = $name;
+        $this->request  = Request::getInstance();
         $this->response = new Response();
+        $this->session  = new Session();
     }
 
     protected function render(string $view, array $variables): Response
