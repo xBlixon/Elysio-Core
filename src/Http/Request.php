@@ -1,6 +1,6 @@
 <?php
 
-namespace Elysio\Http;
+namespace Velsym\Http;
 
 class Request
 {

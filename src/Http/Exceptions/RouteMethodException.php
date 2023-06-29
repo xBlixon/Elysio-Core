@@ -1,6 +1,6 @@
 <?php
 
-namespace Elysio\Http\Exceptions;
+namespace Velsym\Http\Exceptions;
 
 class RouteMethodException extends \Exception
 {

@@ -1,11 +1,11 @@
 {
-    "name": "elysio/core",
-    "description": "The core logic of Elysio Framework.",
+    "name": "velsym/core",
+    "description": "The core logic of Velsym Framework.",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Elysio\\": "src/"
+            "Velsym\\": "src/"
         }
     },
     "authors": [

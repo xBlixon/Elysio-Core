@@ -1,9 +1,9 @@
 <?php
 
-namespace Elysio\Http;
+namespace Velsym\Http;
 
-use Elysio\Http\Exceptions\RouteMethodException;
-use Elysio\Session\Session;
+use Velsym\Http\Exceptions\RouteMethodException;
+use Velsym\Session\Session;
 
 abstract class Route
 {
@@ -26,7 +26,7 @@ abstract class Route
     {
         extract($variables);
 
-        /** $viewsDir is equivalent to _VIEWS constant in the Elysio Framework. */
+        /** $viewsDir is equivalent to _VIEWS constant in the Velsym Framework. */
         $viewsDir = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Views" . DIRECTORY_SEPARATOR;
         ob_start();
             require ($viewsDir . $view);

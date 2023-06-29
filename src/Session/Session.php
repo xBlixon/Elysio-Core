@@ -1,6 +1,6 @@
 <?php
 
-namespace Elysio\Session;
+namespace Velsym\Session;
 
 class Session
 {
